@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+
+<script type="text/javascript">
+const init = () =>{
+	
+	var clientHeight = document.getElementById('main').clientHeight;
+	console.log('clientHeight: '+clientHeight)
+
+	var element = document.getElementsByTagName('body')[0],
+    style = window.getComputedStyle(element),
+    	marginTop = style.getPropertyValue('margin-top');
+    
+    console.log(style.getPropertyValue('margin-bottom'))
+    console.log(marginTop)	
+	
+}	
+
+const moveTop = ()=>{
+	 // window.scrollTo(0, 0); 
+	 window.scroll({
+	  top: 0, 
+	  left: 0, 
+	  behavior: 'smooth' 
+	});
+}
+
+window.addEventListener('scroll', function(e) {
+	console.log(window.scrollY)
+})
+</script>
+<style type="text/css">
+	#main{
+		height: 200px;
+		background-color: #ff0;
+	}
+	#main1{
+		height: 480px;
+		background-color: #0f0;
+	}
+	#main2{
+		height: 580px;
+		background-color: #f0f;
+	}
+</style>
+</head>
+<body onload="init()">
+	<div id="main" >
+		test
+	</div>
+	<div id="main1" >
+		test
+	</div>
+	<div id="main2" >
+		test
+		<input type="button" onclick="moveTop()" value="move top">
+	</div>
+</body>
+</html>
